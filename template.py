@@ -5,11 +5,11 @@ import logging
 
 
 while True:
-    preoject_name = input('Enter your project name')
+    preoject_name = input('Enter your project name: ')
     if preoject_name != '':
         break
 
-logging.baseConfig(
+logging.basicConfig(
     level = logging.INFO,
     format = "[%(asctime)s: %(levelname)s] %(message)s"
 )
@@ -25,20 +25,24 @@ list_of_files = [
     f"{preoject_name}/pipline/__init__.py",
     f"{preoject_name}/utils/__init__.py",
     "config/config.yaml",
+    "config/schema.yaml",
+    "schema.yaml",
     "setup.py",
-    "main.py"
-    "requirement.txt"
-    "demo.py"
+    "app.py"
+    "main.py",
+    "requirement.txt",
+    "demo.py",
+    "dvc.yaml"
 ]
 
 for file_path in list_of_files:
     file_path = Path(file_path)
     filedir, filename = os.path.split(file_path)
     if filedir !='':
-        os.mkdir(filedir,exist_ok=True)
+        os.makedirs(filedir, exist_ok=True)
         logging.info(f"creating new directoy at :{filedir} for file: {filename}")
     if( not os.path.exists(file_path)) or (os.path.getsize(filename) == 0):
-        with open(file_path, w) as f:
+        with open(file_path, 'w') as f:
             pass
             logging.info(f"creating new file {filename} at :{filedir}")
     else:
