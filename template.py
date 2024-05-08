@@ -30,7 +30,7 @@ list_of_files = [
     "setup.py",
     "app.py"
     "main.py",
-    "requirement.txt",
+    "requirements.txt",
     "demo.py",
     "dvc.yaml"
 ]
